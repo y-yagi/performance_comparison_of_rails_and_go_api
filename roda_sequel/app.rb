@@ -2,7 +2,7 @@ require_relative 'models'
 require 'roda'
 
 class App < Roda
-  plugin :json
+  plugin :json, classes: [Array, Hash, Sequel::Model]
 
   route do |r|
     r.root do
@@ -12,7 +12,7 @@ class App < Roda
     r.on "users" do
       r.is do
         r.get do
-          User.all.to_json
+          User.all
         end
       end
     end
