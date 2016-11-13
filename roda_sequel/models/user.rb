@@ -1,4 +1,3 @@
 class User < Sequel::Model
+  plugin :json_serializer
 end
-
-User.plugin :json_serializer
